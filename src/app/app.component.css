@@ -1,0 +1,5 @@
+.content {
+    min-height: calc(100vh); /* Adjust this value to match your footer height */
+    box-shadow: rgb(166 167 167) 1px 1px 20px 20px;
+    background-color: #f8f9fa; background-image: url(/assets/login.jpg);background-size: cover;
+  }

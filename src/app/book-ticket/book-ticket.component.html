@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="card mt-4 text-center mx-auto">
+    <div class="mt-3 w-100" style="margin-top: 8rem !important;">
+      <p>->Movie Name:<b>{{movieName}}</b></p>
+      <p>->Theatre Name: <b>{{theatreName}}</b></p>
+      <p>->Cost of Movie: <b>₹{{"300"}}</b></p>
+      <p>->No Of Tickets Available: <b>{{60-booked}}</b></p>
+      <p>->Selected Seats: <b>{{selectedSeats| json}}</b></p>
+    </div>
+
+    <!-- <p><mat-form-field appearance="outline" class="w-50 mt-3">
+        <mat-label>Number of seats</mat-label>
+        <input matInput type="number" [(ngModel)]="ticket.noOfTickets" name="noOfTickets" id="noOfTickets"
+          placeholder="Please enter number of seats" min="1" required>
+        <mat-hint>Number of seats</mat-hint>
+      </mat-form-field></p> -->
+
+    <!-- <div class=" costs mt-2">
+      <small><b>[</b>Balcony Seat(1-40) : <b>+ ₹50 ; </b></small>
+      <small>Orchestra Seat(From 40) : <b> + ₹100 ]</b></small>
+    </div> -->
+
+    
+<div>
+    <div class="mt-5 container seat-block ">
+      <div>
+      <mat-icon>screen_share</mat-icon>
+      <mat-icon>portrait</mat-icon>
+        </div>
+      <div class="seatMap mx-auto mb-3">
+        <div *ngFor="let row of seatArray; let rowIndex=index" class="seat-row mt-3">
+          <div *ngFor="let col of row let colIndex=index" class="cols">
+            <div class="seat text-center" (click)="toggleSeatSelection(rowIndex*10+colIndex+1)"
+              [class.availabel]="seatArray[rowIndex][colIndex]" [class.sold]="!seatArray[rowIndex][colIndex]" [class.selected]="selectedSeats.includes(rowIndex*10+colIndex+1)">
+              <!-- [class.selected]="col.seatStatus==='Selected'" [class.sold]="col.seatStatus==='Booked'"> -->
+              <p class="seatNumber">{{(rowIndex*10+colIndex+1)}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    <ul class="showcase w-40 mx-auto">
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div class="seat availabel"></div>
+        <small>Available</small>
+      </li>
+      <li>
+        <div class="seat sold"></div>
+        <small>Sold</small>
+      </li>
+    </ul>
+  </div>
+
+  </div>
+  <div class="text-center mb-3">
+    <button mat-raised-button type="submit" (click)="bookTickets()" class="text-center" color="primary">Book Tickets</button>
+  </div>
+</div>

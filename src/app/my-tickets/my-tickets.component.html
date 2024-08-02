@@ -1,0 +1,26 @@
+<div class="container mt-3">
+  <p>{{errorMessage}}</p>
+  <mat-grid-list [cols]="breakpoint" rowHeight="2:4" gutterSize="15" (window:resize)="onResize($event)">
+    <mat-grid-tile *ngFor="let t of myTickets"  style="       box-shadow: inset 0px 0px 16px 13px #791212; background-color: #f5f5dc9e;">
+      <div class="row" >
+        <img class="movie-image rounded" src={{t.imageUrl}} alt="movie-bg">
+        <div class="ml-2 mt-2">
+          <p><b>{{t.movieName}}</b></p>
+        </div>
+        <div class="ml-2 theatre">
+          <p>{{t.theatreName}}</p>
+        </div>
+        <div class="ml-2">
+            <p>No.of tickets : <b>{{t.noOfTickets}}</b></p>
+          </div>
+          <div class="ml-2">
+            Seats: <b>{{t.seatNumber|json}}</b>
+          </div>
+        <div class="ml-2 mt-2">
+          <p>Total ticket Cost: <b>Rs. {{t.noOfTickets*300}}</b></p>
+        </div>
+      </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+</div>
